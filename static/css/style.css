@@ -13,8 +13,9 @@ body {
     height:100%;
 }
 #wrapper {
-    min-height:100%;
-	background-color: #929695;
+    min-height: 100%;
+	  background-color: #929695;
+    overflow: visible;
 }
 #header {
     padding:10px;
@@ -22,14 +23,11 @@ body {
 #content {
     padding-bottom:100px; /* Height of the footer element */
     padding:10px;
-	margin:0 auto;
-	width:85%;
-		
+	  margin:0 auto;
+	  width:85%;	
 }
 #footer {
-    background-color:black;
     color:white;
-    clear:both;
     text-align:center;
     width:100%;
     height:30px;
@@ -40,10 +38,10 @@ body {
 }
 
 .user-wrapper {
-	position: relative;
-	float: left;
-	width: 33.3%;
-	text-align: center;
+	  position: relative;
+	  float: left;
+	  width: 33.3%;
+	  text-align: center;
 }
 .info-wrapper {
     float: left;
@@ -63,10 +61,10 @@ body {
     text-align: left;
 }
 .property-name {
-	font-weight: bold;
+	  font-weight: bold;
 }
 ul.a {
-list-style-position:inside;
+    list-style-position:inside;
 }
 tr:hover.b{
     cursor: pointer;
@@ -76,17 +74,17 @@ table.students{
     cursor: pointer;
 }
 table.class-card {
-width:50%;
-float: right;
-margin-top: 62px;
-border-spacing: 0;
-border-collapse: collapse;
-background-color: #AF75AE
+    width:50%;
+    float: right;
+    margin-top: 62px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    background-color: #AF75AE
 }
 table.class-performance {
-border-spacing: 0;
-border-collapse: collapse;
-background-color: #F3E2BB
+    border-spacing: 0;
+    border-collapse: collapse;
+    background-color: #F3E2BB
 }
 .table tbody>tr>td.vert-align{
     vertical-align: middle;
@@ -101,14 +99,14 @@ background-color: #F3E2BB
     width: 100%;
 }
 .contact-image{
-width: 178px; 
-height: 213px;
+    width: 178px; 
+    height: 213px;
 }
 .image-logo{
-width: 50px; 
-height: 50px;
+    width: 50px; 
+    height: 50px;
 }
 .student-image{
-width: 232px; 
-height: 283px
+    width: 232px; 
+    height: 283px
 }
