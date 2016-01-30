@@ -14,7 +14,6 @@ body {
 }
 #wrapper {
     min-height: 100%;
-    border: 1px solid red;
 	  background-color: #929695;
 }
 #header {
