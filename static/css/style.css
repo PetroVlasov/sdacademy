@@ -65,6 +65,8 @@ body {
 	  font-weight: bold;
 }
 ul.a {
+    font-size: 1.4em;
+    line-height: 3em;
     list-style-position:inside;
 }
 tr:hover.b{
