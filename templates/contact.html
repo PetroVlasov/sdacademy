@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
@@ -5,11 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   
-  <title>SDAcademy: Contacts</title>
-  {% load staticfiles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">  
-  <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
-    <script src="{% static 'js/bootstrap.js'%}"></script>
+  <title>SDAcademy: Contacts</title>    
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">  
+  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+  <script src="{% static 'js/bootstrap.js' %}"></script>
 
 </head>
 
@@ -21,13 +21,13 @@
       <nav class="navbar navbar-inverse">
         <div class="container">
           <div class="navbar-header">
-            <img src="{% static 'images/blender.png'%}" alt="Python Logo" class="image-logo">
+            <img src="{% static 'images/blender.png' %}" alt="Python Logo" class="image-logo">
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="{% url 'index'%}">Main</a></li>
+              <li><a href="{% url 'index' %}">Main</a></li>
               <li class="active"><a>Contacts</a></li>
-              <li><a href="{% url 'student_list'%}">Students</a></li>
+              <li><a href="{% url 'student_list' %}">Students</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -37,7 +37,7 @@
     <div class="content">
       
       <div class="user-wrapper">
-	      <img src="{% static 'images/minions1.jpg'%}" alt="Minion 1" class="img-circle contact-image">
+	      <img src="{% static 'images/minions1.jpg' %}" alt="Minion 1" class="img-circle contact-image">
 	      <h2>Founder</h2>
         <div class="info-wrapper">
           <ul class="user-properties">
@@ -74,7 +74,7 @@
       </div>
       
       <div class="user-wrapper">
-        <img src="{% static 'images/minions4.jpg'%}" alt="Minion 2" class="img-circle contact-image">
+        <img src="{% static 'images/minions4.jpg' %}" alt="Minion 2" class="img-circle contact-image">
         <h2>Director</h2>
         <div class="info-wrapper">
           <ul class="user-properties">
@@ -111,7 +111,7 @@
       </div>
 
       <div class="user-wrapper">
-        <img src="{% static 'images/minions3.jpg'%}" alt="Minion 3" class="img-circle contact-image">
+        <img src="{% static 'images/minions3.jpg' %}" alt="Minion 3" class="img-circle contact-image">
         <h2>Manager</h2>
         <div class="info-wrapper">
           <ul class="user-properties">
