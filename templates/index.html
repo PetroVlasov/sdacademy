@@ -6,9 +6,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   
   <title>SDAcademy: Main</title>
-  
-  <link rel="stylesheet" type="text/css" href="../static/css/style.css">  
-  <link href="../static/css/bootstrap.css" rel="stylesheet">
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">  
+  <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
 
 </head>
 
@@ -20,13 +20,13 @@
         <nav class="navbar navbar-inverse">
           <div class="container">
           <div class="navbar-header">
-            <img src="../static/images/blender.png" alt="Python Logo" class="image-logo">
+            <img src="{% static 'images/blender.png'%}" alt="Python Logo" class="image-logo">
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a>Main</a></li>
-              <li><a href="contact.html">Contacts</a></li>
-              <li><a href="student_list.html">Students</a></li>
+              <li><a href="{% url 'contact'%}">Contacts</a></li>
+              <li><a href="{% url 'student_list'%}">Students</a></li>
             </ul>
           </div><!--/.nav-collapse -->
           </div>
@@ -50,16 +50,16 @@
 
         <li>Python is a Beginner's Language: Python is a great language for the beginner-level programmers and supports the development of a wide range of applications from simple text processing to WWW browsers to games.</li>
       </ul>
-           <div class="container">
+        
+        <div class="container">
           <blockquote class="blockquote-reverse alignleft">
-          <h3>Cute Wabbit Joke</h3>
-          <p><em>A little girl goes into a pet show and asks for a wabbit. The shop keeper looks down at her, smiles and says:</em></p>
-          <p><em>"Would you like a lovely fluffy little white rabbit, or a cutesy wootesly little brown rabbit?"</em></p>
-          <p><em>"Actually", says the little girl, "I don't think my python would notice."</em></p>
-          <p><em>—Nick Leaton, Wed, 04 Dec 1996</em></p>
-
-        </blockquote>
-      </div>
+            <h3>Cute Wabbit Joke</h3>
+            <p><em>A little girl goes into a pet show and asks for a wabbit. The shop keeper looks down at her, smiles and says:</em></p>
+            <p><em>"Would you like a lovely fluffy little white rabbit, or a cutesy wootesly little brown rabbit?"</em></p>
+            <p><em>"Actually", says the little girl, "I don't think my python would notice."</em></p>
+            <p><em>—Nick Leaton, Wed, 04 Dec 1996</em></p>
+          </blockquote>
+        </div>
     </div><!-- #content -->
        
     <div class="footer">

@@ -7,128 +7,123 @@
   
   <title>SDAcademy: Wiz Khalifa</title>
   
-  <link rel="stylesheet" type="text/css" href="../static/css/style.css">  
-  <link href="../static/css/bootstrap.css" rel="stylesheet">
-  <script src="../static/js/bootstrap.js"></script>
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">  
+  <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <div class="wrapper">
-    
-        <div class="header">
-            <nav class="navbar navbar-inverse">
-            <div class="container">
-                <div class="navbar-header">
-                    <img src="../static/images/blender.png" alt="Python Logo" class="image-logo">
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Main</a></li>
-                        <li><a href="contact.html">Contacts</a></li>
-                        <li><a href="student_list.html">Students</a></li>
-                    </ul>
-                </div><!--/.nav-collapse -->
+    <div class="wrapper">    
+      <div class="header">
+        <nav class="navbar navbar-inverse">
+          <div class="container">
+            <div class="navbar-header">
+              <img src="{% static 'images/blender.png'%}" alt="Python Logo" class="image-logo">
             </div>
-            </nav>
-        </div><!-- #header -->
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="{% url 'index'%}">Main</a></li>
+                <li><a href="{% url 'contact'%}">Contacts</a></li>
+                <li><a href="{% url 'student_list'%}">Students</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+      </div><!-- #header -->
     
     <div class="content">
-        <h1>Students Card</h1>
-
-            <table class="table table-bordered class-card">
-                <tbody>
-                    <tr>
-                        <td>Surname:</td>
-                        <td>Khalifa</td>
-                    </tr>
-                    <tr>
-                        <td>Name:</td>
-                        <td>Wiz</td>
-                    </tr>
-                    <tr>
-                        <td>Patronymic:</td>
-                        <td>Laurencovich</td>
-                    </tr>
-                    <tr>
-                        <td>Rating:</td>
-                        <td>50</td>
-                    </tr>
-                    <tr>
-                        <td>Average Grade:</td>
-                        <td>99.5</td>
-                    </tr>
-                    <tr>
-                        <td>Package:</td>
-                        <td>Standard</td>
-                    </tr>
-                    <tr>
-                        <td>Birth Date:</td>
-                        <td>September 8, 1987</td>
-                    </tr>
-                    <tr>
-                        <td>Address:</td>
-                        <td>Minot, North Dakota</td>
-                    </tr>
-                    <tr>
-                        <td>Post:</td>
-                        <td>6100</td>
-                    </tr>
-                    <tr>
-                        <td>E-mail:</td>
-                        <td>wiz@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>Skype:</td>
-                    <td>wiz_87</td>
-                    </tr>
-                </tbody>
-            </table>
-                <div class="center">
-                    <h2 data-toggle="tooltip" title="I JUST WANNA SMOKE AND CHILL MAN">Wiz Khalifa</h2>
-                    <img data-toggle="tooltip" title="I JUST WANNA SMOKE AND CHILL MAN" src="../static/images/khal.jpg" alt="Python Logo" class="student-image">
-                </div>
-
-                <div class="center-table">    
-                    
-                    <table class="table table-bordered class-performance">
-                        <thead>
-                            <tr class="danger">
-                                <th>Course</th>
-                                <th>Week</th>
-                                <th>Control Type</th>
-                                <th>Average Grade</th>
-                                <th>Rating</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td rowspan="5" class="vert-align"><h5>PY101 Python introduction</h5></td>
-                                <td rowspan="3" class="vert-align">Week 1</td>
-                                <td>Tests</td>
-                                <td rowspan="3" class="vert-align">99%</td>
-                                <td rowspan="5" class="vert-align"><h5>First student in class</h5></td>
-                            </tr>
-                            <tr>
-                                <td>Problem Task #1</td>
-                            </tr>
-                            <tr>
-                                <td>Problem Task #1</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="2" class="vert-align">Week 2</td>
-                                <td>Tests</td>
-                                <td rowspan="2" class="vert-align">100%</td>
-                            </tr>
-                            <tr>
-                                <td>Problem Task #1</td>
-                            </tr>
-                        </tbody>
-                    </table>
-        
-
-                </div>  
+      <h1>Students Card</h1>
+      <table class="table table-bordered class-card">
+        <tbody>
+          <tr>
+            <td>Surname:</td>
+            <td>Khalifa</td>
+          </tr>
+          <tr>
+            <td>Name:</td>
+            <td>Wiz</td>
+          </tr>
+          <tr>
+            <td>Patronymic:</td>
+            <td>Laurencovich</td>
+          </tr>
+          <tr>
+            <td>Rating:</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>Average Grade:</td>
+            <td>99.5</td>
+          </tr>
+          <tr>
+            <td>Package:</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Birth Date:</td>
+            <td>September 8, 1987</td>
+          </tr>
+          <tr>
+            <td>Address:</td>
+            <td>Minot, North Dakota</td>
+          </tr>
+          <tr>
+            <td>Post:</td>
+            <td>6100</td>
+          </tr>
+          <tr>
+            <td>E-mail:</td>
+            <td>wiz@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Skype:</td>
+            <td>wiz_87</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="center">
+        <h2 data-toggle="tooltip" title="I JUST WANNA SMOKE AND CHILL MAN">Wiz Khalifa</h2>
+        <img data-toggle="tooltip" title="I JUST WANNA SMOKE AND CHILL MAN" src="{% static 'images/khal.jpg'%}" alt="Python Logo" class="student-image">
+      </div>
+      <div>
+        <table class="table table-bordered class-performance">
+          <thead>
+            <tr class="danger">
+              <th>Course</th>
+              <th>Week</th>
+              <th>Control Type</th>
+              <th>Average Grade</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="5" class="vert-align"><h5>PY101 Python introduction</h5></td>
+              <td rowspan="3" class="vert-align">Week 1</td>
+              <td>Tests</td>
+              <td rowspan="3" class="vert-align">99%</td>
+              <td rowspan="5" class="vert-align"><h5>First student in class</h5></td>
+            </tr>
+            <tr>
+              <td>Problem Task #1</td>
+            </tr>
+            <tr>
+              <td>Problem Task #1</td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="vert-align">Week 2</td>
+              <td>Tests</td>
+              <td rowspan="2" class="vert-align">100%</td>
+            </tr>
+              <tr>
+                <td>Problem Task #1</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>  
     </div>
       
     

@@ -4,16 +4,16 @@ from django.http import HttpResponse
 from django.shortcuts import render, render_to_response
 from . import views
 
-def quadratic(request):
-    a = request.GET['a']
-    print a, type(a)
-    b = request.GET['b']
-    print b, type(b)
-    c = request.GET['c']
-    d = b**2 - 4*a*c
-    print d
-    print c, type(c) 
-    return render_to_response('results.html', {'a':a, 'b':b, 'c':c})
+#def quadratic(request):
+#    a = request.GET['a']
+#   print a, type(a)
+#    b = request.GET['b']
+#    print b, type(b)
+#    c = request.GET['c']
+#    d = b**2 - 4*a*c
+#    print d
+#    print c, type(c) 
+#    return render_to_response('results.html', {'a':a, 'b':b, 'c':c})
 
 
 urlpatterns = patterns('',
