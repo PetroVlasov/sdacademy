@@ -14,16 +14,15 @@ body {
 }
 .wrapper {
     min-height: 100%;
-    background-color: #929695;
+    background-color: #929695
 }
 .header {
     padding:10px;
 }
 .content {
-    padding-bottom:100px; /* Height of the footer element */
     padding:10px;
-	  margin:0 auto;
-	  width:85%;
+	margin:0 auto;
+	width:85%;
 		
 }
 .footer {
@@ -39,30 +38,31 @@ body {
 }
 
 .user-wrapper {
-	  position: relative;
-	  float: left;
-	  width: 33.3%;
-	  text-align: center;
+	position: relative;
+	float: left;
+	width: 33.3%;
+	text-align: center;
 }
 .info-wrapper {
     float: left;
     width: 50%;
 }
 .user-properties {
-	  list-style: none;
-	  margin: 0 auto;
-	  width: 100%;
+	list-style: none;
+    padding: 2px;
+	margin: 0 auto;
+	width: 100%;
     text-align: right;
 }
 .user-values{
     list-style: none;
     margin: 0 auto;
-    padding:2px;
+    padding: 2px;
     width: 100%;
     text-align: left;
 }
 .property-name {
-	  font-weight: bold;
+	font-weight: bold;
 }
 ul.a {
     font-size: 1.4em;
@@ -85,8 +85,6 @@ table.class-card {
     background-color: #AF75AE
 }
 table.class-performance {
-    border-spacing: 0;
-    border-collapse: collapse;
     background-color: #F3E2BB
 }
 .table tbody>tr>td.vert-align{
@@ -96,10 +94,6 @@ table.class-performance {
 .center {
     float: right;
     width: 500px;
-}
-.center-table {
-    float: left;
-    width: 100%;
 }
 .contact-image{
     width: 178px; 
