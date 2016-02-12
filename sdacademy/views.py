@@ -50,19 +50,19 @@ def quadratic(request):
     try:
         context['d'] = float(b)**2 - 4*float(a)*float(c)
         d = context['d']
-        if d < 0:
+	if d > 0 and a != 0:
+            context['descr'] = 'Дискриминант: %d' %d
+            context['x1'] = (-float(b) + float(d) ** (1/2.0)) / 2*float(a)
+            context['x2'] = (-float(b) - float(d) ** (1/2.0)) / 2*float(a)
+            print context['x2']
+            context['result'] = "Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f" % (context['x1'], context['x2']) 
+        elif d < 0:
             context['descr'] = 'Дискриминант: %d' %d
             context['result'] = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
         elif d == 0 and a != 0:
             context['descr'] = 'Дискриминант: %d' %d
             context['x1'] = (-float(b) + float(d) ** (1/2.0)) / 2.0*float(a)
-            context['result'] = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f" %context['x1']
-        elif d > 0 and a != 0:
-            context['descr'] = 'Дискриминант: %d' %d
-            context['x1'] = (-float(b) + float(d) ** (1/2.0)) / 2*float(a)
-            context['x2'] = (-float(b) - float(d) ** (1/2.0)) / 2*float(a)
-            print context['x2']
-            context['result'] = "Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f" % (context['x1'], context['x2'])       
+            context['result'] = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f" % context['x1']      
     except ValueError:
         context['error'] = "error"
 
