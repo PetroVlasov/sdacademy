@@ -4,9 +4,9 @@ from django.shortcuts import render
 
 def quadratic(request):
     context={}
-    a = context['a'] = (request.GET['a'])
-    b = context['b'] = (request.GET['b'])
-    c = context['c'] = (request.GET['c'])
+    a = context['a'] = request.GET.get('a','')
+    b = context['b'] = request.GET.get('b','')
+    c = context['c'] = request.GET.get('c','')
 
     try:
         a = int(a)
