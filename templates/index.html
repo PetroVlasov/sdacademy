@@ -27,7 +27,7 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'student_list' %}">Students</a></li>
+              <li><a href="{% url 'students:list_view' %}">Students</a></li>
             </ul>
           </div><!--/.nav-collapse -->
           </div>
@@ -35,32 +35,24 @@
       </div><!-- #header -->
     
     <div class="content">
-      <h1>PyAcademy Course Description.</h1>
+      <h1>OON Courses</h1>
       <hr>
-      <h3>Course Program</h3>
-      <h4>This course aims to teach everyone the basics of programming computers using Python. We cover the basics of how one constructs a program from a series of simple instructions in Python. The course has no pre-requisites and avoids all but the simplest mathematics. Anyone with moderate computer experience should be able to master the materials in this course. This course will cover Chapters 1-5 of the textbook “Python for Informatics”. This course is equivalent to the first half of the 11-week "Programming for Everybody (Python)" course. Once a student completes this course, they will be ready to take more advanced programming courses.</h4>
-      <h3>Why Python is so good</h3>
-      <h4>Python is a high-level, interpreted, interactive and object-oriented scripting language. Python is designed to be highly readable. It uses English keywords frequently where as  other languages use punctuation, and it has fewer syntactical constructions than other languages.</h4>
+      <h4>Our courses aim to teach everyone the basics of programming computers using Python. We cover the basics of how one constructs a program from a series of simple instructions in Python. The course has no pre-requisites and avoids all but the simplest mathematics. Anyone with moderate computer experience should be able to master the materials in this course. This course will cover Chapters 1-5 of the textbook “Python for Informatics”. This course is equivalent to the first half of the 11-week "Programming for Everybody (Python)" course. Once a student completes this course, they will be ready to take more advanced programming courses.</h4>
+      
 
-      <ul class="a">
-        <li>Python is Interpreted: Python is processed at runtime by the interpreter. You do not need to compile your program before executing it. This is similar to PERL and PHP.</li>
-
-        <li>Python is Interactive: You can actually sit at a Python prompt and interact with the interpreter directly to write your programs.</li>
-
-        <li>Python is Object-Oriented: Python supports Object-Oriented style or technique of programming that encapsulates code within objects.</li>
-
-        <li>Python is a Beginner's Language: Python is a great language for the beginner-level programmers and supports the development of a wide range of applications from simple text processing to WWW browsers to games.</li>
-      </ul>
-        
-        <div class="container">
-          <blockquote class="blockquote-reverse alignleft">
-            <h3>Cute Wabbit Joke</h3>
-            <p><em>A little girl goes into a pet show and asks for a wabbit. The shop keeper looks down at her, smiles and says:</em></p>
-            <p><em>"Would you like a lovely fluffy little white rabbit, or a cutesy wootesly little brown rabbit?"</em></p>
-            <p><em>"Actually", says the little girl, "I don't think my python would notice."</em></p>
-            <p><em>—Nick Leaton, Wed, 04 Dec 1996</em></p>
-          </blockquote>
-        </div>
+      <h3>What course would you like to attend?</h3>
+      <table class="table table-bordered">
+        <tr>
+          <th>Course</th>    
+          <th>Description</th>
+        </tr>
+        {% for item in courses_all %}
+        <tr> 
+          <td><a class="trselect b" href='{% url 'courses:detail' item_id=item.id %}'>{{ item.name }}</a></td>
+          <td>{{ item.short_decription }}</td>
+        </tr>
+        {% endfor %}
+      </table>
     </div><!-- #content -->
        
     <div class="footer">
