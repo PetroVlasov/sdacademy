@@ -41,7 +41,7 @@
       <table class="table table-bordered">
         <tr>
             <th>#</th>
-            <th>Name Surname</th>    
+            <th>Surname Name</th>    
             <th>Address</th>
             <th>Skype</th>
             <th>Courses</th>
@@ -49,7 +49,7 @@
         {% for item in students %}
         <tr> 
             <td>{{ forloop.counter }}</td>
-            <td><a class="trselect b" href="{% url 'students:detail' item.id %}">{{ item.name }} {{ item.surname }}</a></td>
+            <td><a class="trselect b" href="{% url 'students:detail' item.id %}">{{ item.surname }} {{ item.name }}</a></td>
             <td>{{ item.address }}</td>
             <td>{{ item.skype }}</td>
             
