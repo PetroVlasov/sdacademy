@@ -36,10 +36,10 @@
     
     <div class="content">
       <h1>OON Courses</h1>
-      <hr>
+      
       <h4>Our courses aim to teach everyone the basics of programming computers using Python. We cover the basics of how one constructs a program from a series of simple instructions in Python. The course has no pre-requisites and avoids all but the simplest mathematics. Anyone with moderate computer experience should be able to master the materials in this course. This course will cover Chapters 1-5 of the textbook “Python for Informatics”. This course is equivalent to the first half of the 11-week "Programming for Everybody (Python)" course. Once a student completes this course, they will be ready to take more advanced programming courses.</h4>
       
-
+	  <hr>
       <h3>What course would you like to attend?</h3>
       <table class="table table-bordered">
         <tr>
@@ -49,7 +49,7 @@
         {% for item in courses_all %}
         <tr> 
           <td><a class="trselect b" href='{% url 'courses:detail' item_id=item.id %}'>{{ item.name }}</a></td>
-          <td>{{ item.short_decription }}</td>
+          <td>{{ item.short_description }}</td>
         </tr>
         {% endfor %}
       </table>

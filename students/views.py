@@ -19,4 +19,4 @@ def detail(request, item_id):
     student = Student.objects.get(id=item_id)
     print student.surname
     return render(request, 'students/detail.html', {'student': student})
-    
+# Create your views here.
