@@ -61,7 +61,7 @@
             <td>Courses</td>
             <td>
               {% for i in student.courses.all %}
-                <a class="trselect b" href='{% url 'courses:detail' item_id=i.id %}'>{{i}}<br></a>
+                <a class="trselect b" href='{% url 'courses:detail' i.id %}'>{{i}}<br></a>
               {% endfor %}
             </td>
         </tr>
