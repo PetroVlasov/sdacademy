@@ -49,13 +49,13 @@
         {% for item in students %}
         <tr> 
             <td>{{ forloop.counter }}</td>
-            <td><a class="trselect b" href='{% url 'students:detail' item.id %}'>{{ item.name }} {{ item.surname }}</a></td>
+            <td><a class="trselect b" href="{% url 'students:detail' item.id %}">{{ item.name }} {{ item.surname }}</a></td>
             <td>{{ item.address }}</td>
             <td>{{ item.skype }}</td>
             
             <td>
               {% for i in item.courses.all %}
-              <a class="trselect b" href='{% url 'courses:detail' i.id %}'>{{ i }}<br></a>
+              <a class="trselect b" href="{% url 'courses:detail' i.id %}">{{ i }}<br></a>
               {% endfor %}
             </td>
             

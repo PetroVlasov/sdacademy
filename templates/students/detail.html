@@ -26,7 +26,7 @@
             <ul class="nav navbar-nav">
               <li><a href="{% url 'index' %}">Main</a></li>
               <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'students:list_view'%}?course_id={{particular_course}} ">Students</a></li>
+              <li><a href="{% url 'students:list_view'%}?course_id={{particular_course}}">Students</a></li>
             </ul>
           </div><!--/.nav-collapse -->
           </div>
@@ -61,7 +61,7 @@
             <td>Courses</td>
             <td>
               {% for i in student.courses.all %}
-                <a class="trselect b" href='{% url 'courses:detail' i.id %}'>{{i}}<br></a>
+                <a class="trselect b" href="{% url 'courses:detail' i.id %}">{{i}}<br></a>
               {% endfor %}
             </td>
         </tr>
