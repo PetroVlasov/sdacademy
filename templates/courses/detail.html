@@ -36,8 +36,18 @@
     <div class="content">
       
       <h3>{{course.name}}</h3>
-      <h4>{{course.description}}</h4>
       <hr>
+      <h4>{{course.description}}</h4>
+      
+      <h3>Course professor</h3>
+      <h4><a class="trselect b" href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.first_name}} {{course.coach.user.last_name}}</a></h4>
+      <h4>{{course.coach.description}}</h4>
+
+      <h3>Course assistant</h3>
+      <h4><a class="trselect b" href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.first_name}} {{course.assistant.user.last_name}}</a></h4>
+      <h4>{{course.assistant.description}}</h4>
+
+
         <table class="table table-bordered">
         <tr>
             <th>#</th>

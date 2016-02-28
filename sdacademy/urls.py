@@ -16,4 +16,5 @@ urlpatterns = patterns('',
     url(r'^quadratic/', include('quadratic.urls')),
     url(r'^courses/', include('courses.urls', namespace="courses", app_name="courses")) ,
     url(r'^students/', include('students.urls', namespace="students", app_name="students")) ,
+    url(r'^coaches/', include('coaches.urls', namespace="coaches", app_name="coaches")) ,
 )
