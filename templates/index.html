@@ -1,66 +1,33 @@
-<!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  
-  <title>SDAcademy: Main</title>
-  {% load staticfiles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">  
-  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-  <script src="{% static 'js/bootstrap.js' %}"></script>
+{% extends "base.html" %}
 
-</head>
 
-  <body>
+{% block title %}SDAcademy: Main{% endblock %}
 
-    <div class="wrapper">
-    
-      <div class="header">
-        <nav class="navbar navbar-inverse">
-          <div class="container">
-          <div class="navbar-header">
-            <img src="{% static 'images/blender.png' %}" alt="Python Logo" class="image-logo">
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="{% url 'index' %}">Main</a></li>
-              <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'students:list_view' %}">Students</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-          </div>
-        </nav>
-      </div><!-- #header -->
-    
+
+{% load staticfiles %}
+
+
+{% block nav_class_main %}active{% endblock %}
+
+
+{% block content %}
+
+
+{% include "include/oon_include.html" %}
     <div class="content">
-      <h1>OON Courses</h1>
-      
-      <h4>Our courses aim to teach everyone the basics of programming computers using Python. We cover the basics of how one constructs a program from a series of simple instructions in Python. The course has no pre-requisites and avoids all but the simplest mathematics. Anyone with moderate computer experience should be able to master the materials in this course. This course will cover Chapters 1-5 of the textbook “Python for Informatics”. This course is equivalent to the first half of the 11-week "Programming for Everybody (Python)" course. Once a student completes this course, they will be ready to take more advanced programming courses.</h4>
-      
-	  <hr>
-      <h3>What course would you like to attend?</h3>
-      <table class="table table-bordered">
-        <tr>
-          <th>Course</th>    
-          <th>Description</th>
-        </tr>
-        {% for item in courses_all %}
-        <tr> 
-          <td><a class="trselect b" href="{% url 'courses:detail' item.id %}">{{ item.name }}</a></td>
-          <td>{{ item.short_description }}</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div><!-- #content -->
-       
-    <div class="footer">
-      All rights reserved &reg;
-    </div><!-- #footer -->
-    
-  </div><!-- #wrapper -->
-  
-</body>
 
-</html>
+        <h3>What course would you like to attend?</h3>
+        <table class="table table-bordered">
+          <tr>
+              <th>Course</th>    
+              <th>Description</th>
+          </tr>
+          {% for item in courses_all %}
+          <tr> 
+              <td><a class="trselect b" href="{% url 'courses:detail' item.id %}">{{ item.name|upper }}</a></td>
+              <td>{{ item.short_description|title }}</td>
+           </tr>
+          {% endfor %}
+        </table>
+    </div><!-- #content -->
+{% endblock %}

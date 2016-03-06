@@ -1,39 +1,12 @@
-<!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  
-  <title>SDAcademy: Students</title>
-  
-  {% load staticfiles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">  
-  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-	<script src="{% static 'js/bootstrap.js' %}"></script>
+{% extends "base.html" %}
 
-</head>
+{% block title %}SDAcademy: Students{% endblock %}
 
-<body>
+{% load staticfiles %}
 
-  <div class="wrapper">
-    
-    <div class="header">
-      <nav class="navbar navbar-inverse">
-        <div class="container">
-          <div class="navbar-header">
-            <img src="{% static 'images/blender.png' %}" alt="Python Logo" class="image-logo">
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="{% url 'index' %}">Main</a></li>
-              <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li class="active"><a href="{% url 'students:list_view' %}">Students</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </nav>
-    </div><!-- #header -->
+{% block nav_class_students %}active{% endblock %}
+
+{% block content %} 
     
     <div class="content">
       <h1>SDAcademy students</h1>
@@ -90,13 +63,5 @@
       
 
     </div><!-- #content -->
-    
-    <div class="footer">
-      All rights reserved &reg;
-    </div><!-- #footer -->
-    
-  </div><!-- #wrapper -->
-  
-</body>
 
-</html>
+{% endblock %}

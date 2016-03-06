@@ -1,53 +1,37 @@
-<!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>SDAcademy: Main</title>
-  {% load staticfiles %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">  
-  <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-  <script src="{% static 'js/bootstrap.js' %}"></script>
+{% extends "base.html" %}
 
-</head>
+{% block title %}{{course.name}}{% endblock %}
 
-  <body>
+{% load staticfiles %}
 
-    <div class="wrapper">
-    
-      <div class="header">
-        <nav class="navbar navbar-inverse">
-          <div class="container">
-          <div class="navbar-header">
-            <img src="{% static 'images/blender.png' %}" alt="Python Logo" class="image-logo">
-          </div>
-          <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="{% url 'index' %}">Main</a></li>
-              <li><a href="{% url 'contact' %}">Contacts</a></li>
-              <li><a href="{% url 'students:list_view'%}?course_id={{particular_course}} ">Students</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-          </div>
-        </nav>
-      </div><!-- #header -->
+{% block content %}
+
+{% include "include/oon_include.html" %}      
     
     <div class="content">
+      <h2>Course: {{course.name}}</h3>
+      <h4>{{course.description|truncatechars:32}}</h4>
       
-      <h3>{{course.name}}</h3>
-      <hr>
-      <h4>{{course.description}}</h4>
-      
-      <h3>Course professor</h3>
-      <h4><a class="trselect b" href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.first_name}} {{course.coach.user.last_name}}</a></h4>
-      <h4>{{course.coach.description}}</h4>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Course professor</h3>
+        </div>
+        <div class="panel-body">
+          <h4><a class="trselect b" href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.first_name}} {{course.coach.user.last_name}}</a></h4>
+          <h4>{{course.coach.description}}</h4>
+        </div>
+      </div>
 
-      <h3>Course assistant</h3>
-      <h4><a class="trselect b" href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.first_name}} {{course.assistant.user.last_name}}</a></h4>
-      <h4>{{course.assistant.description}}</h4>
-
-
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Course assistant</h3>
+        </div>
+        <div class="panel-body">
+          <h4><a class="trselect b" href="{% url 'coaches:detail' course.assistant.id %}">{{course.assistant.user.first_name}} {{course.assistant.user.last_name}}</a></h4>
+          <h4>{{course.assistant.description}}</h4>
+        </div>
+      </div>
+        <h3>{{course.name}} Course Plan</h3>
         <table class="table table-bordered">
         <tr>
             <th>#</th>
@@ -63,14 +47,6 @@
         {% endfor %}
       </table>
     </div><!-- #content -->
-       
-    <div class="footer">
-      All rights reserved &reg;
-    </div><!-- #footer -->
-    
-  </div><!-- #wrapper -->
-  
-</body>
 
-</html>
+{% endblock %}
 
