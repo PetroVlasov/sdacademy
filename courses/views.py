@@ -15,3 +15,4 @@ def detail(request, item_id):
     lessons_all = Lesson.objects.filter(course=courses)
  
     return render_to_response('courses/detail.html', {'courses': courses, 'lessons_all': lessons_all, 'particular_course':course.id, 'course':course})
+
