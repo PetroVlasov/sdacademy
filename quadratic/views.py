@@ -23,14 +23,14 @@ def quadratic(request):
                 context['x2'] = (-float(b) - float(d) ** (1/2.0)) / 2*float(a)
                 print context['x2']
                 print context['x1']
-                context['result'] = "Квадратное уравнение имеет два действительных корня: x1 = %s, x2 = %s" % (context['x1'] + 0, context['x2'] + 0) 
+                context['result'] = "Квадратное уравнение имеет два действительных корня: x1 = %.1f, x2 = %.1f" % (context['x1'] + 0, context['x2'] + 0) 
             elif d < 0:
                 context['descr'] = 'Дискриминант: %d' %d
                 context['result'] = "Дискриминант меньше нуля, квадратное уравнение не имеет действительных решений."
             elif d == 0 and int(a) != 0:
                 context['descr'] = 'Дискриминант: %d' %d
                 context['x1'] = (-float(b) + float(d) ** (1/2.0)) / 2.0*float(a)
-                context['result'] = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %s" % (context['x1'] + 0)      
+                context['result'] = "Дискриминант равен нулю, квадратное уравнение имеет один действительный корень: x1 = x2 = %.1f" % (context['x1'] + 0)      
     else:
         form = QuadraticForm()
 
