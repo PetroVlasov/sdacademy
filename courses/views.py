@@ -51,8 +51,10 @@ def remove(request, item_id):
     return render(request, 'courses/remove.html')
 
 def add_lesson(request, item_id):
-    
+    courses = Course.objects.filter(id=item_id)
     course = Course.objects.get(id=item_id)
+
+    lessons_all = Lesson.objects.filter(course=courses)
  
     if request.method == 'POST':
         
@@ -61,9 +63,8 @@ def add_lesson(request, item_id):
         if model_form.is_valid():
             lesson = model_form.save()
             messages.success(request, 'Lesson %s has been successfully added.' % lesson.subject) 
-            return redirect('courses:detail', item_id=item_id)
+            return render(request, 'courses/detail.html', {'courses': courses, 'lessons_all': lessons_all, 'particular_course':course.id, 'course':course})
     else:
- #       model_form = LessonModelForm(request.POST, instance=course)
         model_form = LessonModelForm(initial={"course": item_id})
     return render(request, 'courses/add_lesson.html', {'model_form': model_form})    
 
