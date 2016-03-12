@@ -7,8 +7,8 @@ from django.contrib import messages
 
 
 def detail(request, item_id):
-    courses = Course.objects.filter(id=item_id)
-    course = Course.objects.get(id=item_id)
+    courses = Course.objects.filter(pk=item_id)
+    course = Course.objects.get(pk=item_id)
 
     lessons_all = Lesson.objects.filter(course=courses)
  
@@ -28,7 +28,7 @@ def add(request):
 
 
 def edit(request, item_id):
-    application = Course.objects.get(id=item_id)
+    application = Course.objects.get(pk=item_id)
     if request.method == 'POST':
         form = CourseModelForm(request.POST, instance=application)
         if form.is_valid():
@@ -40,7 +40,7 @@ def edit(request, item_id):
 
 
 def remove(request, item_id):
-    application = Course.objects.get(id=item_id)
+    application = Course.objects.get(pk=item_id)
     if request.method == 'POST':
         form = CourseModelForm(request.POST, instance=application)
         obj = form.instance
@@ -51,8 +51,10 @@ def remove(request, item_id):
     return render(request, 'courses/remove.html')
 
 def add_lesson(request, item_id):
-    courses = Course.objects.filter(id=item_id)
-    course = Course.objects.get(id=item_id)
+    courses = Course.objects.filter(pk=item_id)
+    course = Course.objects.get(pk=item_id)
+    print course.coach
+    print course.assistant
     lessons_all = Lesson.objects.filter(course=courses)
  
     if request.method == 'POST':
@@ -62,8 +64,8 @@ def add_lesson(request, item_id):
         if model_form.is_valid():
             lesson = model_form.save()
             messages.success(request, 'Lesson %s has been successfully added.' % lesson.subject) 
-            #return redirect('courses:detail', item_id=item_id)
-            return render(request, 'courses/detail.html', {'lessons_all': lessons_all, 'course':course})
+            return redirect('courses:detail', item_id=item_id)
+            #return render(request, 'courses/detail.html', {'lessons_all': lessons_all, 'course':course})
     else:
         model_form = LessonModelForm(initial={"course": item_id})
     return render(request, 'courses/add_lesson.html', {'model_form': model_form})    

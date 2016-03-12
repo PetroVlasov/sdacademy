@@ -23,6 +23,8 @@
       <h2>Course: {{course.name}}</h3>
       <h4>{{course.description|truncatechars:32}}</h4>
       
+
+      {% if course.coach %}
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Course professor</h3>
@@ -32,7 +34,9 @@
           <h4>{{course.coach.description}}</h4>
         </div>
       </div>
+      {% endif %}
 
+      {% if course.assistant %}
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Course assistant</h3>
@@ -42,6 +46,7 @@
           <h4>{{course.assistant.description}}</h4>
         </div>
       </div>
+      {% endif %}
         <h3>{{course.name}} Course Plan</h3>
 
         <a type="button" class="btn btn-default" href="{% url 'courses:add-lesson' course.pk %}">Додати новий урок</a>
