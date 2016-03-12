@@ -53,16 +53,16 @@ def remove(request, item_id):
 def add_lesson(request, item_id):
     courses = Course.objects.filter(id=item_id)
     course = Course.objects.get(id=item_id)
-
     lessons_all = Lesson.objects.filter(course=courses)
  
     if request.method == 'POST':
         
-        model_form = LessonModelForm(request.POST, initial={"course": item_id, 'subject': 'sdfdf'})
+        model_form = LessonModelForm(request.POST)
         
         if model_form.is_valid():
             lesson = model_form.save()
             messages.success(request, 'Lesson %s has been successfully added.' % lesson.subject) 
+            #return redirect('courses:detail', item_id=item_id)
             return render(request, 'courses/detail.html', {'lessons_all': lessons_all, 'course':course})
     else:
         model_form = LessonModelForm(initial={"course": item_id})
