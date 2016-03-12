@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Add a new Course{% endblock %}
+
+{% load staticfiles %}
+
+
+{% block content %}  
+    
+    <div class="content">
+        <h3>Add a new course<h3/> 
+        <hr>
+        <h1>Fuck</h1>
+        <form method='post'>
+            <h5>{% csrf_token %}
+            {{ model_form.as_p }}
+            <input type="submit" value="Добавить"/></h5>
+        </form>
+    </div>
+
+
+    
+{% endblock %}

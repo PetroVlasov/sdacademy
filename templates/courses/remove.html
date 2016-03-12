@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Remove Course{% endblock %}
+
+{% load staticfiles %}
+
+{% block content %}     
+    <div class="content">
+        <h3>Remove Course<h3/> 
+        <hr>
+        <form method='post'>
+            <h5>{% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Are you sure you wont to delete this course?"/></h5>
+        </form>
+    </div>
+
+
+    
+{% endblock %}

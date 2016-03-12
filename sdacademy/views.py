@@ -6,8 +6,8 @@ from courses.models import Lesson
 
 def index(request):
     courses_all = Course.objects.all()
-    return render_to_response('index.html', {'courses_all': courses_all})
-
+    return render(request, 'index.html', {'courses_all': courses_all})
+    
 def student_list(request):
     return render(request, 'student_list.html')
 

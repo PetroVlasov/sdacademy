@@ -14,9 +14,21 @@
 
 
 {% include "include/oon_include.html" %}
-    <div class="content">
 
+    <div class="content">
+        
         <h3>What course would you like to attend?</h3>
+
+        <a type="button" class="btn btn-default" href="{% url 'courses:course-add' %}">Добавить курс</a>
+        {% if messages %}
+	{% for message in messages %}
+	<div class="alert alert-{{ message.tags }}">
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	{{ message }}
+	</div>
+	{% endfor %}
+	{% endif %}
+        <hr>
         <table class="table table-bordered">
           <tr>
               <th>Course</th>    
@@ -26,6 +38,12 @@
           <tr> 
               <td><a class="trselect b" href="{% url 'courses:detail' item.id %}">{{ item.name|upper }}</a></td>
               <td>{{ item.short_description|title }}</td>
+              <td>
+              <a type="button" class="btn btn-default" href="{% url 'courses:course-edit' item.pk %}">Изменить</a>
+              </td>
+              <td>
+              <a type="button" class="btn btn-default" href="{% url 'courses:course-remove' item.pk %}">Удалить</a>
+              </td>
            </tr>
           {% endfor %}
         </table>
