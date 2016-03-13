@@ -53,8 +53,6 @@ def remove(request, item_id):
 def add_lesson(request, item_id):
     courses = Course.objects.filter(pk=item_id)
     course = Course.objects.get(pk=item_id)
-    print course.coach
-    print course.assistant
     lessons_all = Lesson.objects.filter(course=courses)
  
     if request.method == 'POST':
