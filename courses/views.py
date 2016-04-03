@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from courses.models import Lesson
-from courses.models import Course
+from courses.models import Lesson, Course
 from courses.forms import CourseModelForm, LessonModelForm
 from django.contrib import messages
 from django.views.generic.detail import DetailView
@@ -67,11 +66,8 @@ def add_lesson(request, pk):
     courses = Course.objects.filter(pk=pk)
     course = Course.objects.get(pk=pk)
     lessons_all = Lesson.objects.filter(course=courses)
- 
     if request.method == 'POST':
-        
         model_form = LessonModelForm(request.POST)
-        
         if model_form.is_valid():
             lesson = model_form.save()
             messages.success(request, 'Lesson %s has been successfully added.' % lesson.subject) 

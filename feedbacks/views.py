@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from feedbacks.models import Feedback
 from django.views.generic.edit import CreateView
 from django.core.urlresolvers import reverse_lazy
