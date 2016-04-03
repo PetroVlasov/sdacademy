@@ -27,7 +27,7 @@
 
     <a type="button" class="btn btn-default" href="{% url 'students:create' %}">Add a new Student</a>
     <hr>
-    <div class="fixer-container">
+    
       <ul class="pagination">
         {% if course_id %}
           {% if page_obj.has_previous %}
@@ -51,7 +51,7 @@
             {% endif %}
         {% endif %}
       </ul>
-    </div>
+    
     <table class="table table-bordered">
       <tr>
         <th>#</th>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 
-{% block title %}Remove Student Application{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
 
 {% load staticfiles %}
@@ -13,7 +13,7 @@
 {% block content %}
 
   <div class="content">
-    <h3>Remove student application<h3/> 
+    <h3>{{ title }}</h3> 
     <hr>
     <form method='post'>
       <h5>
