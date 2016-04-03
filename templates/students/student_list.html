@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+
+{% block title %}SDAcademy: Students{% endblock %}
+
+
+{% load staticfiles %}
+
+
+{% block nav_class_students %}active{% endblock %}
+
+
+{% block content %}
+    
+  <div class="content">
+
+    <h1>SDAcademy students</h1>
+    <h4>List of students enrolled into our course in 2015</h4>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <a type="button" class="btn btn-default" href="{% url 'students:create' %}">Add a new Student</a>
+    <hr>
+    <div class="fixer-container">
+      <ul class="pagination">
+        {% if course_id %}
+          {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}&course_id={{ course_id }}"><< previous</a></li>
+          {% endif %}
+          {% for page in page_obj.paginator.page_range %}
+            <li class="{% if page_obj.number == page  %}active{% endif %}"><a href="?page={{ page }}&course_id={{ course_id }}">{{ page }}</a></li>
+          {% endfor %}
+          {% if page_obj.has_next %}
+            <li> <a href="?page={{ page_obj.next_page_number }}&course_id={{ course_id }}">next >></a></li>
+          {% endif %}
+        {% else %}
+          {% if page_obj.has_previous %}
+            <li><a href="?page={{ page_obj.previous_page_number }}"><< previous</a></li>
+          {% endif %}
+          {% for page in page_obj.paginator.page_range %}
+            <li class="{% if page_obj.number == page  %}active{% endif %}"><a href="?page={{ page }}">{{ page }}</a></li>
+          {% endfor %}
+            {% if page_obj.has_next %}
+             <li> <a href="?page={{ page_obj.next_page_number }}">next >></a></li>
+            {% endif %}
+        {% endif %}
+      </ul>
+    </div>
+    <table class="table table-bordered">
+      <tr>
+        <th>#</th>
+        <th>Surname Name</th>    
+        <th>Address</th>
+        <th>Skype</th>
+        <th>Courses</th>
+      </tr>
+      {% for item in object_list %}
+        <tr> 
+          <td>{{ forloop.counter }}</td>
+          <td><a class="trselect b" href="{% url 'students:detail' item.pk %}">{{ item.surname }} {{ item.name }}</a></td>
+          <td>{{ item.address }}</td>
+          <td>{{ item.skype }}</td>
+          <td>
+            {% for i in item.courses.all %}
+              <a class="trselect b" href="{% url 'courses:detail' i.pk %}">{{ i }}<br></a>
+            {% endfor %}
+          </td>
+          <td>
+            <a type="button" class="btn btn-default" href="{% url 'students:edit' item.pk %}">Update Student Info</a>
+          </td>
+          <td>
+            <a type="button" class="btn btn-default" href="{% url 'students:remove' item.pk %}">Delete Student Aplication</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  </div><!-- #content -->
+
+{% endblock %}

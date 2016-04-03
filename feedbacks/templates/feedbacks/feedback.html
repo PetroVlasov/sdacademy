@@ -1,18 +1,17 @@
 {% extends "base.html" %}
 
-
-{% block title %}Edit Student Application{% endblock %}
-
+{% block title %}{{ title }}{% endblock %}
 
 {% load staticfiles %}
 
-
-{% block nav_class_students %}active{% endblock %}
+{% block nav_class_feedbacks %}active{% endblock %}
 
 
 {% block content %}  
-
+    
   <div class="content">
+    <h3>{{ title }}</h3> 
+    <hr>
     {% if messages %}
       {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
@@ -21,15 +20,13 @@
         </div>
       {% endfor %}
     {% endif %}
-    <h3>Student Details</h3> 
-    <hr>
-      <form method='post'>
-        <h5>
-          {% csrf_token %}
-          {{ form.as_p }}
-          <input type="submit" value="Update Student Info"/>
-        </h5>
-      </form>
+
+    <form method='post'>
+      <h5>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Send"/></h5>
+    </form>
   </div>
-  
+
 {% endblock %}

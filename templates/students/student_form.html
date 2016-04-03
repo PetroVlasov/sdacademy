@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
-
-{% block title %}Edit Student Application{% endblock %}
-
+{% block title %}{{ title }}{% endblock %}
 
 {% load staticfiles %}
 
@@ -11,7 +9,7 @@
 
 
 {% block content %}  
-
+    
   <div class="content">
     {% if messages %}
       {% for message in messages %}
@@ -21,15 +19,16 @@
         </div>
       {% endfor %}
     {% endif %}
-    <h3>Student Details</h3> 
+        
+    <h3>{{ title }}</h3> 
     <hr>
-      <form method='post'>
-        <h5>
-          {% csrf_token %}
-          {{ form.as_p }}
-          <input type="submit" value="Update Student Info"/>
-        </h5>
-      </form>
+    <form method='post'>
+      <h5>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save"/>
+      </h5>
+    </form>
   </div>
-  
+ 
 {% endblock %}

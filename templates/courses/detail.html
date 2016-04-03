@@ -1,42 +1,46 @@
 {% extends "base.html" %}
 
+
 {% block title %}{{course.name}}{% endblock %}
+
 
 {% load staticfiles %}
 
-{% block course_id %}?course_id={{ particular_course }}{% endblock %}
+
+{% block course_id %}?course_id={{ course.pk }}{% endblock %}
+
 
 {% block content %}
 
+
 {% include "include/oon_include.html" %}      
     
-    <div class="content">
+  <div class="content">
 
-	    {% if messages %}
-        <ul class="messages">
-        {% for message in messages %}
-        <div class="alert alert-success content" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
-        {% endfor %}
-        </ul>
-        {% endif %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          {{ message }}
+	</div>
+      {% endfor %}
+    {% endif %}
 
-      <h2>Course: {{course.name}}</h3>
-      <h4>{{course.description|truncatechars:32}}</h4>
-      
-
-      {% if course.coach %}
+    <h2>Course: {{course.name}}</h3>
+    <h4>{{course.description|truncatechars:32}}</h4>
+    {% if course.coach %}
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Course professor</h3>
+        <h3 class="panel-title">Course professor</h3>
         </div>
         <div class="panel-body">
           <h4><a class="trselect b" href="{% url 'coaches:detail' course.coach.id %}">{{course.coach.user.first_name}} {{course.coach.user.last_name}}</a></h4>
           <h4>{{course.coach.description}}</h4>
         </div>
       </div>
-      {% endif %}
+    {% endif %}
 
-      {% if course.assistant %}
+    {% if course.assistant %}
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">Course assistant</h3>
@@ -46,26 +50,26 @@
           <h4>{{course.assistant.description}}</h4>
         </div>
       </div>
-      {% endif %}
-        <h3>{{course.name}} Course Plan</h3>
-
-        <a type="button" class="btn btn-default" href="{% url 'courses:add-lesson' course.pk %}">Додати новий урок</a>
-
-        <table class="table table-bordered">
-        <tr>
-            <th>#</th>
-            <th>Lesson</th>    
-            <th>Description</th>
-        </tr>
-        {% for item in lessons_all %}
+    {% endif %}
+        
+    <h3>{{course.name}} Course Plan</h3>
+    <a type="button" class="btn btn-default" href="{% url 'courses:add-lesson' course.pk %}">Add a Lesson</a>
+    <table class="table table-bordered">
+      <tr>
+        <th>#</th>
+        <th>Lesson</th>    
+        <th>Description</th>
+      </tr>
+      {% for item in lessons_all %}
         <tr> 
-            <td>{{ item.order }}</td>
-            <td>{{ item.subject }}</td>
-            <td>{{ item.description }}</td>
+          <td>{{ forloop.counter  }}</td>
+          <td>{{ item.subject }}</td>
+          <td>{{ item.description }}</td>
         </tr>
-        {% endfor %}
-      </table>
-    </div><!-- #content -->
+      {% endfor %}
+    </table>
+
+  </div><!-- #content -->
 
 {% endblock %}
 

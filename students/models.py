@@ -1,5 +1,6 @@
 from django.db import models
 from courses.models import Course
+from django.core.urlresolvers import reverse_lazy, reverse
 
 
 class Student(models.Model):
@@ -17,5 +18,8 @@ class Student(models.Model):
 
     def full_name(self):
         return '%s %s' % (self.name, self.surname) 
+	
+#    def get_absolute_url(self):
+#        return reverse('students:edit', current_app='student', kwargs={'pk': self.object.pk})
 
 # Create your models here.

@@ -21,7 +21,7 @@ body {
 }
 .content {
     padding:10px;
-	margin:0 auto;
+    margin:0 auto;
 	width:85%;
 		
 }
@@ -105,5 +105,6 @@ table.class-performance {
 }
 .student-image{
     width: 232px; 
-    height: 283px
+    height: 283px;
 }
+

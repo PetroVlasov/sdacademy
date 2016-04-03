@@ -1,68 +1,71 @@
 {% extends "base.html" %}
 
+
 {% block title %}SDAcademy: Students{% endblock %}
+
 
 {% load staticfiles %}
 
+
 {% block nav_class_students %}active{% endblock %}
+
 
 {% block content %} 
     
-    <div class="content">
-      <h1>SDAcademy students</h1>
-      <h4>List of students enrolled into our course in 2015</h4>
-      <button type="button" class="btn btn-default">Default</button>
-      <hr>
-      <table class="table table-bordered students">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Surname</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Skype</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="trselect b" onclick="location.href={% url 'student_detail' %}">
-              <td>1</td>
-              <td>Khalifa</td>
-              <td>Wiz</td>
-              <td>Minot, North Dakota</td>
-              <td>wiz_87</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Mayers</td>
-            <td>Rakim</td>
-            <td>Harlem, New York City</td>
-            <td>a$apFlacko</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Scott</td>
-            <td>Travis</td>
-            <td>Missouri City</td>
-            <td>Scott105</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>A$AP</td>
-            <td>Ferg</td>
-            <td>Harlem, New York City</td>
-            <td>Ferg4eva</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Badass</td>
-            <td>Joey</td>
-            <td>Brooklyn, New York City</td>
-            <td>b4da$$</td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="content">
+    <h1>SDAcademy students</h1>
+    <h4>List of students enrolled into our course in 2015</h4>
+    <button type="button" class="btn btn-default">Default</button>
+    <hr>
+    <table class="table table-bordered students">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Surname</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Skype</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="trselect b" onclick="location.href={% url 'student_detail' %}">
+          <td>1</td>
+          <td>Khalifa</td>
+          <td>Wiz</td>
+          <td>Minot, North Dakota</td>
+          <td>wiz_87</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Mayers</td>
+          <td>Rakim</td>
+          <td>Harlem, New York City</td>
+          <td>a$apFlacko</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Scott</td>
+          <td>Travis</td>
+          <td>Missouri City</td>
+          <td>Scott105</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>A$AP</td>
+          <td>Ferg</td>
+          <td>Harlem, New York City</td>
+          <td>Ferg4eva</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Badass</td>
+          <td>Joey</td>
+          <td>Brooklyn, New York City</td>
+          <td>b4da$$</td>
+        </tr>
+      </tbody>
+    </table>
       
-
-    </div><!-- #content -->
+  </div><!-- #content -->
 
 {% endblock %}

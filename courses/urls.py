@@ -3,9 +3,9 @@ from django.shortcuts import render
 from . import views
 
 urlpatterns = patterns('',
-    url(r'^(?P<item_id>\d+)/$', views.detail, name="detail"),
-    url(r'^(?P<item_id>\d+)/add_lesson$', views.add_lesson, name="add-lesson"),
-    url(r'^add/$', views.add, name="course-add"),
-    url(r'^edit/(?P<item_id>\d+)/$', views.edit, name="course-edit"),
-    url(r'^remove/(?P<item_id>\d+)/$', views.remove, name='course-remove'),
+    url(r'^(?P<pk>\d+)/$', views.CourseDetailView.as_view(), name="detail"),
+    url(r'^(?P<pk>\d+)/add_lesson$', views.add_lesson, name="add-lesson"),
+    url(r'^add/$', views.CourseCreateView.as_view(), name="course-add"),
+    url(r'^edit/(?P<pk>\d+)/$', views.CourseUpdateView.as_view(), name="course-edit"),
+    url(r'^remove/(?P<pk>\d+)/$', views.CourseDeleteView.as_view(), name='course-remove'),
 )

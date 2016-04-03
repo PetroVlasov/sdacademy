@@ -10,6 +10,8 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">  
   <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
   <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
 </head>
 
@@ -28,6 +30,7 @@
               <li class="{% block  nav_class_main %}{% endblock %}"><a href="{% url 'index' %}">Main</a></li>
               <li class="{% block  nav_class_contacts %}{% endblock %}"><a href="{% url 'contact' %}">Contacts</a></li>
               <li class="{% block  nav_class_students %}{% endblock %}"><a href="{% url 'students:list_view' %}{% block course_id %}{% endblock %}">Students</a></li>
+              <li class="{% block  nav_class_feedbacks %}{% endblock %}"><a href="{% url 'feedback' %}">Feedback</a></li>
             </ul>
           </div><!--/.nav-collapse -->
           </div>

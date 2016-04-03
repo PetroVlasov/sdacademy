@@ -19,3 +19,6 @@ class Lesson(models.Model):
 
     def __unicode__(self):
         return self.subject
+    
+#    def get_absolute_url(self):
+#        return reverse('courses:detail', current_app='courses', kwargs={'pk': self.object.pk})

@@ -1,22 +1,24 @@
 {% extends "base.html" %}
 
+
 {% block title %}Add a new Lesson{% endblock %}
+
 
 {% load staticfiles %}
 
 
 {% block content %}  
     
-    <div class="content">
-        <h3>Add a new lesson<h3/> 
-        <hr>
-        <form method='post'>
-            <h5>{% csrf_token %}
-            {{ model_form.as_p }}
-            <input type="submit" value="Добавить"/></h5>
-        </form>
-    </div>
+  <div class="content">
+    <h3>Add a new lesson<h3/> 
+    <hr>
+    <form method="post">
+      <h5>
+        {% csrf_token %}
+        {{ model_form.as_p }}
+        <input type="submit" value="Add Lesson"/>
+      </h5>
+    </form>
+  </div>
 
-
-    
 {% endblock %}

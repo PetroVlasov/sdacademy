@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
-{% block title %}Edit Course {% endblock %}
+
+{% block title %}Edit Course{% endblock %}
+
 
 {% load staticfiles %}
 
@@ -8,24 +10,26 @@
 {% block nav_class_students %}{% endblock %}
 
 
-{% block content %}  
+{% block content %}
+
+  <div class="content">
     {% if messages %}
-    <ul class="messages">
-    {% for message in messages %}
-    <div class="alert alert-success content" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
-    {% endfor %}
-    </ul>
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          {{ message }}
+        </div>
+      {% endfor %}
     {% endif %}
-    <div class="content">
-        <h3>Редактирование данных курса<h3/> 
-        <hr>
-        <form method='post'>
-            <h5>{% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Изменить"/></h5>
-        </form>
-    </div>
-
-
+    <h3>Update Course Details</h3> 
+    <hr>
+    <form method='post'>
+      <h5>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update Course Details"/>
+      </h5>
+    </form>
+  </div>
     
 {% endblock %}
